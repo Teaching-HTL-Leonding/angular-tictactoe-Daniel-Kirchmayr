@@ -4,7 +4,7 @@ import { HelloSignalsComponent } from './hello-signals/hello-signals.component';
 import { GreetingComponent } from './greeting/greeting.component';
 
 export const routes: Routes = [
-  {path: 'ttt', component: TicTacToeComponent},
+  {path: 'tic-tac-toe', component: TicTacToeComponent},
   {path: 'signals', component: HelloSignalsComponent},
   {path: 'greeting', component: GreetingComponent},
   {path: '', redirectTo: '', pathMatch: 'full'}

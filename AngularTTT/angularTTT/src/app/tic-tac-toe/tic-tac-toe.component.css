@@ -1,12 +1,18 @@
-#game div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+#game {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  justify-content: center;
 }
 
-.board {
-    display: inline-grid;
-    grid-template-columns: auto auto auto;
+#cell {
+  width: 100px;
+  height: 100px;
+  background-color: #f0f0f0;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  cursor: pointer;
 }

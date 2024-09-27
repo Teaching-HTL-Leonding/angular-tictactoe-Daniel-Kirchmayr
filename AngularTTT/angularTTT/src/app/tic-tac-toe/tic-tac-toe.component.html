@@ -2,7 +2,7 @@
 
 <div id="game">
   @for (cell of board; track $index) {
-    <div>{{cell}}</div>
+    <div id="cell" (click)="onClick($index)">{{cell}}</div>
   }
 </div>
 

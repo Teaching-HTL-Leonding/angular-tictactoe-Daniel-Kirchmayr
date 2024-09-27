@@ -1,19 +1,5 @@
-import { Component } from '@angular/core';
-
-
-//Union Type of X and O
-type Player = 'X' | 'O';
-
-type Cellcontent = Player | ' ';
-
-type WinningStatus = Player | "draw" | undefined;
-//  Customer type with name and age
-type Customer = {
-  name: string;
-  age: number;
-};
-//  CustomerWithId type with name, age and id
-type CustomerWithId = Customer & { id: number };
+import { Component, inject } from '@angular/core';
+import { Cellcontent, Player, TicTacToeWinnerService } from '../tic-tac-toe-winner.service';
 
 @Component({
   selector: 'app-tic-tac-toe',
@@ -24,10 +10,9 @@ type CustomerWithId = Customer & { id: number };
 })
 export class TicTacToeComponent {
   board: Cellcontent[] = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
-
-  status = ''
-
+  status = '';
   currentPlayer: Player = 'X';
+  winnerService = inject(TicTacToeWinnerService);
 
   onClick(index: number) {
     if (this.board[index] !== ' ') {
@@ -36,26 +21,9 @@ export class TicTacToeComponent {
     this.board[index] = this.currentPlayer;
     this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
 
-  }
-
-  getWinner(): WinningStatus {
-    const lines = [
-      [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
-      [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
-      [0, 4, 8], [2, 4, 6] // diagonals
-    ];
-
-    for (const line of lines) {
-      const [a, b, c] = line;
-      if (this.board[a] !== ' ' && this.board[a] === this.board[b] && this.board[a] === this.board[c]) {
-        return this.board[a] as WinningStatus;
-      }
-    }
-
-    if (this.board.includes(' ')) {
-      return undefined;
-    } else {
-      return 'draw';
+    const winner = this.winnerService.getWinner(this.board);
+    if (winner) {
+      this.status = winner === 'draw' ? 'Draw!' : `Player ${winner} wins!`;
     }
   }
 }
