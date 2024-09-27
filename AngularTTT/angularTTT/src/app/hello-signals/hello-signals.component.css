@@ -1,0 +1,35 @@
+/* hello-signals.component.css */
+
+h2 {
+  color: #4CAF50;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+input[type="number"] {
+  display: block;
+  margin: 10px auto;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #f9f9f9;
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+hr {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}

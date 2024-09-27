@@ -1,0 +1,16 @@
+<h2>Signals</h2>
+
+<input type="number" [(ngModel)]="magicNumber" />
+{{magicNumber()}}
+
+<br />
+<hr>
+
+{{counter()}}
+{{lengthOfNumbers()}}
+
+<ul>
+  @for (n of numbers(); track $index) {
+  <li>{{n}}</li>
+  }
+</ul>
